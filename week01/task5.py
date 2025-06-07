@@ -4,13 +4,13 @@ from itertools import combinations
 
 N = int(input())
 input_str = input().split()
-print(input_str)
+# print(input_str)
 
 id = int(input())
 select = 'a'
 
 combs = list(combinations(input_str, id))
-print(combs)
+# print(combs)
 
 fav_combs = 0
 for c in combs:
@@ -18,6 +18,6 @@ for c in combs:
         fav_combs += 1
 if len(combs) > 0:
     probability = fav_combs / len(combs)
-    print(f"{probability:.3f}")
+    print(f"{probability}")
 else:
     print("0")
