@@ -3,7 +3,7 @@
 t = int(input())
 for i in range(t):
     try:
-        a, b = list(map(int, input().split()))
+        a, b = map(int, input().split())
         try:
             print(a//b)
         except ZeroDivisionError as ze:
