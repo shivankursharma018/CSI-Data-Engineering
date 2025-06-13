@@ -1,27 +1,50 @@
 def alphabet_rangoli(size):
-    s = 'A'
-    size = 5
-    size += 2
-    j = size-1
-    k = size-1
-    for i in range(1,size,2):
-        print('-'*j+'-'.join(s*i)+'-'*k)
-        j = j-2
-        k = k-2
-    j = 0
-    k = 0
-    for m in range(size,0,-2):
-        print('-'*j+'-'.join(s*m)+'-'*k)
-        j = j+2
-        k = k+2
+    total_width = 4 * size - 3
+
+    # top half
+    j = size - 1
+    i = 1
+    while i <= size:
+        left = []
+        ch = size
+        count = 1
+        while count < i:
+            left.append(chr(96 + ch))
+            ch -= 1
+            count += 1
+
+        right = []
+        ch = size - i + 1
+        while ch <= size:
+            right.append(chr(96 + ch))
+            ch += 1
+
+        row = left + right
+        print('-'.join(row).center(total_width, '-'))
+
+        i += 1
+
+    # bottom half
+    i = size - 1
+    while i >= 1:
+        left = []
+        ch = size
+        count = 1
+        while count < i:
+            left.append(chr(96 + ch))
+            ch -= 1
+            count += 1
+
+        right = []
+        ch = size - i + 1
+        while ch <= size:
+            right.append(chr(96 + ch))
+            ch += 1
+
+        row = left + right
+        print('-'.join(row).center(total_width, '-'))
+
+        i -= 1
 
 size = int(input())
 alphabet_rangoli(size)
-# 3
-# 3 2 1 2 3
-for i in range(size, 0, -1):
-    initial_char = chr(97+i-1)
-    print(initial_char, end='')
-for j in range(2, size+1):
-    later_char = chr(97+j-1)
-    print(later_char, end='')
