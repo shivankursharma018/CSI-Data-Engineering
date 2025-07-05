@@ -24,7 +24,7 @@ VALUES
 (10, 'Simran', 'Gupta', 20, 'simran.gupta24@gmail.com');
 
 -- task 2: schedule based and event based trigger
--- schedule based trigger
+-- schedule based trigger (at 5 minutes gap)
 INSERT INTO Students (StudentID, FirstName, LastName, Age, Email)
 VALUES 
 (11, 'Ananya', 'Sharma', 22, 'ananya.sharma@edu.in'),
