@@ -18,7 +18,7 @@ This guide provides step-by-step instructions to set up a Self-hosted Integratio
 5. **Download Installer**: After creation, click on your new integration runtime and download the installer.
 6. **Copy Authentication Key**: Copy the authentication key provided; you will need it during the installation process on your local machine.
 
-![task1.1](/week06/screenshots/1_1.png)
+![task1.2](/week06/screenshots/selfhostednode.png)
 
 ---
 
@@ -103,10 +103,9 @@ Pipelines define the workflow for data movement and transformation.
 4. **Verify Data Load**:
    - Navigate to your Azure SQL Database and confirm that the data has been successfully loaded into the destination table.
 
-
+![task1.1](/week06/screenshots/1_1.png)
 ![task1.6](/week06/screenshots/1_6.png)
 ![task1.5](/week06/screenshots/1_5.png)
-![task1.2](/week06/screenshots/1_2.png)
 
 By following these steps, you have configured a Self-hosted Integration Runtime to securely extract data from a local SQL Server and load it into an Azure SQL Database.
 
