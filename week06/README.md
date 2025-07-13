@@ -18,6 +18,8 @@ This guide provides step-by-step instructions to set up a Self-hosted Integratio
 5. **Download Installer**: After creation, click on your new integration runtime and download the installer.
 6. **Copy Authentication Key**: Copy the authentication key provided; you will need it during the installation process on your local machine.
 
+![task1.1](/week06/screenshots/1_1.png)
+
 ---
 
 ## Step 2: Install SHIR on Local Machine
@@ -30,6 +32,9 @@ This guide provides step-by-step instructions to set up a Self-hosted Integratio
 Your local machine is now registered as the SHIR host, allowing secure data transfer between your on-premises environment and Azure.
 
 ---
+
+![task1.4](/week06/screenshots/1_4.png)
+![task1.7](/week06/screenshots/1_7.png)
 
 ## Step 3: Create Linked Services in Azure Data Factory
 
@@ -98,6 +103,11 @@ Pipelines define the workflow for data movement and transformation.
 4. **Verify Data Load**:
    - Navigate to your Azure SQL Database and confirm that the data has been successfully loaded into the destination table.
 
+
+![task1.6](/week06/screenshots/1_6.png)
+![task1.5](/week06/screenshots/1_5.png)
+![task1.2](/week06/screenshots/1_2.png)
+
 By following these steps, you have configured a Self-hosted Integration Runtime to securely extract data from a local SQL Server and load it into an Azure SQL Database.
 
 
@@ -142,6 +152,9 @@ Ensure you have the following credentials:
    - Select your storage account.
 2. **Test and Create**: Test the connection and click "Create".
 
+
+![task2.1](/week06/screenshots/2_1.png)
+
 ---
 
 ## Step 3: Create Datasets
@@ -180,6 +193,10 @@ Ensure you have the following credentials:
    - Enable Wildcard file processing.
    - Set skip/overwrite options as needed.
 
+
+![task2.2](/week06/screenshots/2_2.png)
+![task2.3](/week06/screenshots/2_3.png)
+
 ---
 
 ## Step 5: Validate and Run Pipeline
@@ -188,6 +205,8 @@ Ensure you have the following credentials:
 2. **Publish**: Click "Publish All" to deploy the pipeline.
 3. **Trigger Pipeline**: Manually trigger the pipeline by clicking "Add Trigger" and selecting "Trigger Now".
 4. **Monitor**: Go to the "Monitor" tab to confirm the pipeline's success.
+
+![task2.4](/week06/screenshots/2_4.png)
 
 ---
 
@@ -241,6 +260,9 @@ Ensure you’ve created Linked Services for:
 
 Test and save both connections.
 
+![task3.1](/week06/screenshots/3_1.png)
+![task3.2](/week06/screenshots/3_2.png)
+
 ---
 
 ## Step 4: Create Datasets with Parameters
@@ -257,6 +279,8 @@ SELECT * FROM Customers WHERE UpdatedAt > '@{dataset().watermarkValue}'
 **Sink Dataset:**
 - Configure for Azure SQL Database
 - Allow insert/upsert as required
+
+![task3.3](/week06/screenshots/3_3.png)
 
 ---
 
@@ -293,6 +317,11 @@ WHERE TableName = 'Customers';
 3. Attach this trigger to the pipeline
 4. Publish all changes
 
+
+![task3.4](/week06/screenshots/3_4.png)
+![task3.5](/week06/screenshots/3_5.png)
+
+---
 
 # Task 4: Automate a Pipeline to Trigger Every Last Saturday of the Month in Azure Data Factory
 
@@ -420,6 +449,8 @@ For scenarios requiring more advanced retry logic:
 - Simulate failure (disconnect FTP, delay API)
 - Observe retry behavior in ADF Monitor tab
 - Check logs and alerts to verify retry and wait
+
+![task4.1](/week06/screenshots/4_1.png)
 
 ---
 
