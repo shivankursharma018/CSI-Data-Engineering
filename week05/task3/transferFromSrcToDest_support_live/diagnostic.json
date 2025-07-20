@@ -1,0 +1,23 @@
+{
+    "now": "2025-07-20T06:39:55.658Z",
+    "perfNow": 46204717.7,
+    "diagnosticCorrelation": "544f6368-3627-4cfd-be36-73fb6af0505e",
+    "source": "DownloadSupportFiles",
+    "environment": {
+        "productName": "adf",
+        "buildVersion": "1.0.071425.1",
+        "environmentType": 3,
+        "resourceName": "shivankur-csi2025",
+        "resourceRegion": "eastus",
+        "resourceGroup": "CSI2025",
+        "subscriptionId": "0286e617-d5fe-49b2-833e-72c49e5ea5d6",
+        "sessionId": "hG8er3ieSnfLhwyS8w3UPs",
+        "operationId": "",
+        "gitType": "live",
+        "loggingKey": "edcc7314-638b-417a-a318-880616b56c44"
+    },
+    "additionalInfo": {
+        "selectedResource": "transferFromSrcToDest",
+        "selectedResourceType": "pipeline"
+    }
+}

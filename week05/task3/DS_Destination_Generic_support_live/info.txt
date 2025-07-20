@@ -1,0 +1,6 @@
+selected resource name:		DS_Destination_Generic
+selected resource type:		dataset
+factory name:			shivankur-csi2025
+factory location:		eastus
+subscription id:		0286e617-d5fe-49b2-833e-72c49e5ea5d6
+time of download (UTC):		Sun, 20 Jul 2025 06:40:27 GMT
