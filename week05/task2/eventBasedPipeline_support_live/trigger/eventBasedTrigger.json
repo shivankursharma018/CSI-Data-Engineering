@@ -1,0 +1,24 @@
+{
+    "name": "eventBasedTrigger",
+    "properties": {
+        "annotations": [],
+        "runtimeState": "Stopped",
+        "pipelines": [
+            {
+                "pipelineReference": {
+                    "referenceName": "eventBasedPipeline",
+                    "type": "PipelineReference"
+                }
+            }
+        ],
+        "type": "BlobEventsTrigger",
+        "typeProperties": {
+            "blobPathBeginsWith": "/input/blobs/csv/",
+            "ignoreEmptyBlobs": false,
+            "scope": "/subscriptions/0286e617-d5fe-49b2-833e-72c49e5ea5d6/resourceGroups/CSI2025/providers/Microsoft.Storage/storageAccounts/shivstoragecsi1",
+            "events": [
+                "Microsoft.Storage.BlobCreated"
+            ]
+        }
+    }
+}

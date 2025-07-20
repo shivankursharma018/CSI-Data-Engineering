@@ -1,0 +1,26 @@
+{
+    "name": "timeBasedTrigger",
+    "properties": {
+        "description": "trigger at 5pm",
+        "annotations": [],
+        "runtimeState": "Started",
+        "pipelines": [
+            {
+                "pipelineReference": {
+                    "referenceName": "timeBasedPipeline",
+                    "type": "PipelineReference"
+                }
+            }
+        ],
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Minute",
+                "interval": 5,
+                "startTime": "2025-07-05T17:00:00",
+                "endTime": "2025-07-05T17:16:00",
+                "timeZone": "India Standard Time"
+            }
+        }
+    }
+}
