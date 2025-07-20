@@ -1,0 +1,123 @@
+{
+    "name": "selectiveDataMigration",
+    "properties": {
+        "activities": [
+            {
+                "name": "getTableColumnMap",
+                "type": "Lookup",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "AzureSqlSource",
+                        "sqlReaderQuery": "SELECT TableName, ColumnList FROM tableColumnMap",
+                        "queryTimeout": "02:00:00",
+                        "partitionOption": "None"
+                    },
+                    "dataset": {
+                        "referenceName": "AzureSqlTable2",
+                        "type": "DatasetReference"
+                    },
+                    "firstRowOnly": false
+                }
+            },
+            {
+                "name": "loopOverTables",
+                "type": "ForEach",
+                "dependsOn": [
+                    {
+                        "activity": "getTableColumnMap",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "userProperties": [],
+                "typeProperties": {
+                    "items": {
+                        "value": "@activity('getTableColumnMap').output.value",
+                        "type": "Expression"
+                    },
+                    "batchCount": 1,
+                    "activities": [
+                        {
+                            "name": "copySelectedColumns",
+                            "type": "Copy",
+                            "dependsOn": [],
+                            "policy": {
+                                "timeout": "0.12:00:00",
+                                "retry": 0,
+                                "retryIntervalInSeconds": 30,
+                                "secureOutput": false,
+                                "secureInput": false
+                            },
+                            "userProperties": [],
+                            "typeProperties": {
+                                "source": {
+                                    "type": "AzureSqlSource",
+                                    "sqlReaderQuery": {
+                                        "value": "@concat('SELECT ', item().ColumnList, ' FROM ', item().TableName)",
+                                        "type": "Expression"
+                                    },
+                                    "queryTimeout": "02:00:00",
+                                    "partitionOption": "None"
+                                },
+                                "sink": {
+                                    "type": "AzureSqlSink",
+                                    "writeBehavior": "insert",
+                                    "sqlWriterUseTableLock": false,
+                                    "tableOption": "autoCreate",
+                                    "disableMetricsCollection": false
+                                },
+                                "enableStaging": false,
+                                "translator": {
+                                    "type": "TabularTranslator",
+                                    "typeConversion": true,
+                                    "typeConversionSettings": {
+                                        "allowDataTruncation": true,
+                                        "treatBooleanAsNumber": false
+                                    }
+                                }
+                            },
+                            "inputs": [
+                                {
+                                    "referenceName": "DS_Source_Generic",
+                                    "type": "DatasetReference",
+                                    "parameters": {
+                                        "TableName": {
+                                            "value": "@item().TableName",
+                                            "type": "Expression"
+                                        },
+                                        "ColumnList": "@item().ColumnList"
+                                    }
+                                }
+                            ],
+                            "outputs": [
+                                {
+                                    "referenceName": "DS_Destination_Generic",
+                                    "type": "DatasetReference",
+                                    "parameters": {
+                                        "TableName": {
+                                            "value": "@item().TableName",
+                                            "type": "Expression"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ],
+        "annotations": [],
+        "lastPublishTime": "2025-07-06T19:01:17Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}

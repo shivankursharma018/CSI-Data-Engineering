@@ -1,0 +1,25 @@
+{
+    "name": "DS_Source_Query_Based",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "LS_SQL_Source",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "TableName": {
+                "type": "string"
+            },
+            "ColumnList": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "dbo",
+            "table": "DummyTable"
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
