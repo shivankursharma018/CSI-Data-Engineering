@@ -1,0 +1,23 @@
+{
+    "now": "2025-07-20T06:32:10.518Z",
+    "perfNow": 45739577.8,
+    "diagnosticCorrelation": "f798dfe0-98e7-45d8-9639-76bc316a17fc",
+    "source": "DownloadSupportFiles",
+    "environment": {
+        "productName": "adf",
+        "buildVersion": "1.0.071425.1",
+        "environmentType": 3,
+        "resourceName": "shivankur-csi2025",
+        "resourceRegion": "eastus",
+        "resourceGroup": "CSI2025",
+        "subscriptionId": "0286e617-d5fe-49b2-833e-72c49e5ea5d6",
+        "sessionId": "hG8er3ieSnfLhwyS8w3UPs",
+        "operationId": "",
+        "gitType": "live",
+        "loggingKey": "edcc7314-638b-417a-a318-880616b56c44"
+    },
+    "additionalInfo": {
+        "selectedResource": "copySqlToBlobPipelineAvro",
+        "selectedResourceType": "pipeline"
+    }
+}
